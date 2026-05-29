@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#0A1628"/>
+  <!-- Pillar -->
+  <line x1="16" y1="5" x2="16" y2="27" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- Top crossbar -->
+  <line x1="7" y1="9" x2="25" y2="9" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+  <!-- Left pan strings -->
+  <line x1="9" y1="9" x2="7" y2="17" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="9" y1="9" x2="11" y2="17" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Left pan bowl -->
+  <path d="M6.5 17 Q9 21.5 11.5 17" stroke="#C9A84C" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <!-- Right pan strings -->
+  <line x1="23" y1="9" x2="21" y2="17" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="23" y1="9" x2="25" y2="17" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Right pan bowl (slightly lower — case in progress) -->
+  <path d="M20.5 18 Q23 22.5 25.5 18" stroke="#C9A84C" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <!-- Base -->
+  <line x1="13" y1="27" x2="19" y2="27" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+  <!-- Center pivot dot -->
+  <circle cx="16" cy="9" r="1.8" fill="#C9A84C"/>
+</svg>

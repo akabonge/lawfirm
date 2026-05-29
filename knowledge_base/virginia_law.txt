@@ -1,0 +1,97 @@
+VIRGINIA LAW REFERENCE — BILLIE JEAN LAW KNOWLEDGE BASE
+
+STATUTES OF LIMITATIONS (Virginia Code)
+
+Personal injury: 2 years from date of injury — Va. Code § 8.01-243(A)
+Wrongful death: 2 years from date of death — Va. Code § 8.01-244
+Medical malpractice: 2 years from date of injury or discovery — Va. Code § 8.01-243(C)
+Property damage: 5 years — Va. Code § 8.01-243(B)
+Breach of written contract: 5 years — Va. Code § 8.01-246(2)
+Breach of oral contract: 3 years — Va. Code § 8.01-246(4)
+Fraud: 2 years from discovery — Va. Code § 8.01-243(D)
+Libel and slander: 1 year — Va. Code § 8.01-247.1
+
+Note on tolling: The SOL may be tolled (paused) if the plaintiff was a minor at the time of injury, if the defendant fraudulently concealed the cause of action, or in medical malpractice cases where the injury was not discoverable through reasonable diligence.
+
+
+CONTRIBUTORY NEGLIGENCE (Virginia Rule)
+
+Virginia is one of only four states (along with Alabama, Maryland, and North Carolina, plus Washington D.C.) that follows pure contributory negligence. Under this doctrine, if a plaintiff is found to be even 1% at fault for their own injury, they are completely barred from recovering any damages from the defendant. This is extremely plaintiff-unfavorable compared to comparative negligence states. It makes early legal consultation and evidence preservation critical in personal injury cases.
+
+
+DUI LAW — Virginia Code § 18.2-266
+
+First offense, BAC 0.08-0.149%: Class 1 misdemeanor. Up to 12 months jail. Fine $250-$2,500. 12-month administrative license suspension. Mandatory ASAP program enrollment.
+
+First offense, BAC 0.15-0.20%: Same as above plus mandatory minimum 5 days jail.
+
+First offense, BAC above 0.20%: Mandatory minimum 10 days jail.
+
+Second offense within 5 years: Mandatory minimum 20 days jail. 3-year license suspension. Ignition interlock required.
+
+Second offense within 10 years: Mandatory minimum 10 days jail.
+
+Felony DUI (third or subsequent offense, or DUI resulting in serious injury/death): Class 6 felony, mandatory minimum 1 year imprisonment.
+
+Implied Consent: Virginia drivers impliedly consent to a blood or breath test when lawfully arrested for DUI. Refusal is a separate civil offense on first refusal, and a Class 1 misdemeanor on subsequent refusals, resulting in 1-year (first) or 3-year (subsequent) license suspension.
+
+
+RECKLESS DRIVING — Virginia Code § 46.2-862
+
+Driving 20 mph or more over the posted speed limit, or driving at any speed exceeding 85 mph, is a Class 1 misdemeanor in Virginia — regardless of road conditions or traffic. Penalties: up to 12 months jail, fine up to $2,500, 6 demerit points (highest level), potential license suspension. A criminal conviction that appears on background checks. This is frequently charged on I-95 and Route 1 in the Fredericksburg area.
+
+
+VIRGINIA DIVORCE LAW — Virginia Code § 20-91
+
+Grounds for divorce from the bond of matrimony:
+1. Adultery, sodomy, or buggery outside the marriage (immediate grounds; bars adultery-based alimony)
+2. Conviction of a felony subsequent to the marriage and confinement for more than 1 year
+3. Willful desertion or abandonment for 1 year
+4. Cruelty or reasonable apprehension of bodily hurt
+5. No-fault: living separate and apart for 1 year (or 6 months with no minor children and a written separation agreement)
+
+Equitable Distribution (Va. Code § 20-107.3): Courts consider: duration of marriage; contributions of each party; circumstances leading to the divorce; how and when property was acquired; debts; tax consequences; and whether either party dissipated marital assets.
+
+
+CHILD CUSTODY — Virginia Code § 20-124.3
+
+Best interests of the child factors:
+1. Age, physical and mental condition of the child
+2. Age, physical and mental condition of each parent
+3. Relationship between each parent and the child, including the parent's ability to assess and meet the child's emotional, intellectual, and physical needs
+4. Needs of the child
+5. Role each parent has played and will play in the child's upbringing and care
+6. Each parent's propensity to actively support the child's contact with the other parent and to maintain a positive relationship between the child and other parent
+7. Reasonable preference of the child (if the court deems the child of reasonable intelligence and understanding)
+8. Any history of family abuse as defined in Va. Code § 16.1-228
+9. Any history of sexual abuse
+10. Such other factors as the court deems necessary
+
+
+VIRGINIA PROTECTIVE ORDERS — Virginia Code § 16.1-253 et seq.
+
+Emergency Protective Order (EPO): Issued by a magistrate or judge without the respondent present. Duration: up to 72 hours. Can cover no-contact, exclusion from residence, custody.
+
+Preliminary Protective Order (PPO): Issued by General District Court after an ex parte hearing. Duration: up to 15 days (until full hearing). Can include temporary custody provisions.
+
+Permanent Protective Order: Issued after a full hearing with both parties present. Duration: up to 2 years, may be extended. Can prohibit contact, require surrender of firearms (consistent with federal law), assign temporary custody, and exclude respondent from shared residence.
+
+
+VIRGINIA CHILD SUPPORT — Virginia Code § 20-108.2
+
+Virginia uses the Income Shares Model: child support is based on the combined gross monthly income of both parents and allocated proportionally. Adjustments include work-related childcare costs, health insurance premiums, and extraordinary medical expenses. The schedule is set by statute and provides presumptive amounts that can be deviated from only for good cause shown.
+
+
+FREDERICKSBURG AREA COURTS
+
+Fredericksburg Circuit Court: 815 Princess Anne Street, Fredericksburg, VA 22401. (540) 372-1066.
+Fredericksburg General District Court: 815 Princess Anne Street, Fredericksburg, VA 22401.
+Stafford County Circuit Court: 1300 Courthouse Road, Stafford, VA 22554.
+Stafford County General District Court: 1300 Courthouse Road, Stafford, VA 22554.
+Spotsylvania County Circuit Court: 9107 Judicial Center Lane, Spotsylvania, VA 22553.
+Spotsylvania County General District Court: 9107 Judicial Center Lane, Spotsylvania, VA 22553.
+
+
+VIRGINIA STATE BAR
+
+All attorneys licensed in Virginia are regulated by the Virginia State Bar (VSB). Bar number verification available at vsb.org. Complaints about attorney conduct are handled by the VSB's Disciplinary System.

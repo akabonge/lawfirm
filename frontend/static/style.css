@@ -1,0 +1,697 @@
+/* Billie Jean Law — Dark Navy + Gold */
+:root {
+  --navy:   #0A1628;
+  --navy-2: #0F2040;
+  --navy-3: #162B52;
+  --gold:   #C9A84C;
+  --gold-2: #D4B563;
+  --text:   #E8EAF2;
+  --text-2: #8891A8;
+  --red:    #E84A4A;
+  --blue:   #4A9EE8;
+  --border: #1E2F4A;
+  --radius: 12px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--navy);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ── NAV ─────────────────────────────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 64px;
+  background: rgba(10, 22, 40, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--text-2);
+  transition: color .2s;
+}
+
+.nav-links a:hover { color: var(--text); }
+
+.nav-cta {
+  background: var(--gold);
+  color: var(--navy) !important;
+  font-weight: 700 !important;
+  padding: 8px 18px;
+  border-radius: 8px;
+  transition: background .2s !important;
+}
+
+.nav-cta:hover { background: var(--gold-2) !important; }
+
+/* ── HERO ────────────────────────────────────────────────────────────────── */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  padding: 140px 5% 100px;
+  min-height: 100vh;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201, 168, 76, .1);
+  border: 1px solid rgba(201, 168, 76, .25);
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+  margin-bottom: 20px;
+}
+
+.hero-accent { color: var(--gold); }
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--text-2);
+  max-width: 520px;
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 10px;
+  transition: background .2s, transform .15s;
+}
+
+.btn-primary:hover { background: var(--gold-2); transform: translateY(-1px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 10px;
+  transition: border-color .2s, color .2s;
+}
+
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+.hero-proof {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.proof-item { display: flex; flex-direction: column; gap: 2px; }
+.proof-num  { font-size: 1.3rem; font-weight: 800; color: var(--gold); }
+.proof-label { font-size: .78rem; color: var(--text-2); font-weight: 500; }
+.proof-divider { width: 1px; height: 36px; background: var(--border); }
+
+.hero-visual {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero-card {
+  background: var(--navy-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 320px;
+  max-width: 400px;
+}
+
+.hero-card-icon { font-size: 1.8rem; }
+
+.hero-card-title { font-size: .95rem; font-weight: 700; margin-bottom: 2px; }
+.hero-card-sub   { font-size: .8rem; color: var(--text-2); }
+
+.hero-card-badge {
+  margin-left: auto;
+  background: rgba(74, 200, 140, .12);
+  color: #4AC88C;
+  border: 1px solid rgba(74, 200, 140, .25);
+  font-size: .75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.hero-card-badge.urgent {
+  background: rgba(232, 74, 74, .12);
+  color: var(--red);
+  border-color: rgba(232, 74, 74, .25);
+}
+
+/* ── SECTION SHARED ──────────────────────────────────────────────────────── */
+.section-header { text-align: center; margin-bottom: 56px; }
+.section-eyebrow {
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  margin-bottom: 14px;
+}
+
+.section-sub {
+  font-size: 1rem;
+  color: var(--text-2);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ── PRACTICE AREAS ──────────────────────────────────────────────────────── */
+.practice-section {
+  padding: 100px 5%;
+  background: var(--navy-2);
+}
+
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.practice-card {
+  background: var(--navy);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  transition: border-color .25s, transform .2s;
+}
+
+.practice-card:hover {
+  border-color: rgba(201, 168, 76, .4);
+  transform: translateY(-2px);
+}
+
+.practice-icon {
+  width: 48px; height: 48px;
+  background: rgba(201, 168, 76, .08);
+  border: 1px solid rgba(201, 168, 76, .2);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+
+.practice-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.practice-desc {
+  font-size: .88rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.practice-fee {
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+/* ── WHY BILLIE JEAN ─────────────────────────────────────────────────────── */
+.why-section { padding: 100px 5%; }
+
+.why-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.why-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  margin-bottom: 48px;
+  letter-spacing: -.02em;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 48px;
+}
+
+.why-item { display: flex; gap: 16px; }
+
+.why-icon {
+  width: 28px; height: 28px;
+  background: rgba(201, 168, 76, .12);
+  border: 1px solid rgba(201, 168, 76, .3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .75rem;
+  color: var(--gold);
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.why-label { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+.why-text  { font-size: .88rem; color: var(--text-2); line-height: 1.65; }
+
+/* ── ATTORNEYS ───────────────────────────────────────────────────────────── */
+.attorneys-section {
+  padding: 100px 5%;
+  background: var(--navy-2);
+}
+
+.attorneys-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.attorney-card {
+  background: var(--navy);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.attorney-avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--navy-3);
+  border: 2px solid rgba(201, 168, 76, .3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+}
+
+.attorney-name  { font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
+.attorney-title { font-size: .82rem; color: var(--gold); font-weight: 600; margin-bottom: 8px; }
+.attorney-areas { font-size: .82rem; color: var(--text-2); line-height: 1.6; }
+
+/* ── CONTACT ─────────────────────────────────────────────────────────────── */
+.contact-section {
+  padding: 100px 5%;
+  text-align: center;
+}
+
+.contact-inner { max-width: 600px; margin: 0 auto; }
+
+.contact-inner h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.contact-sub {
+  color: var(--text-2);
+  margin-bottom: 32px;
+  font-size: 1rem;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.btn-ghost-light {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  border: 1.5px solid rgba(255,255,255,.2);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 10px;
+  transition: border-color .2s, color .2s;
+}
+
+.btn-ghost-light:hover { border-color: var(--gold); color: var(--gold); }
+
+.contact-info, .contact-hours {
+  font-size: .85rem;
+  color: var(--text-2);
+  line-height: 1.7;
+}
+
+/* ── CHAT BUTTON ─────────────────────────────────────────────────────────── */
+#chat-btn {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  z-index: 200;
+  width: 60px; height: 60px;
+  background: var(--gold);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(201, 168, 76, .4);
+  transition: transform .2s, box-shadow .2s;
+  display: flex; align-items: center; justify-content: center;
+}
+
+#chat-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 28px rgba(201, 168, 76, .55);
+}
+
+.notif-dot {
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 10px; height: 10px;
+  background: var(--red);
+  border-radius: 50%;
+  border: 2px solid var(--navy);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: .6; transform: scale(1.25); }
+}
+
+/* ── CHAT WINDOW ─────────────────────────────────────────────────────────── */
+#chat-window {
+  position: fixed;
+  bottom: 100px; right: 28px;
+  z-index: 199;
+  width: 380px;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  background: var(--navy-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.5);
+  opacity: 0;
+  transform: translateY(16px) scale(.97);
+  pointer-events: none;
+  transition: opacity .22s, transform .22s;
+  overflow: hidden;
+}
+
+#chat-window.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  background: var(--navy-3);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.chat-avatar {
+  width: 38px; height: 38px;
+  background: rgba(201, 168, 76, .1);
+  border: 1.5px solid rgba(201, 168, 76, .3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+  transition: box-shadow .2s;
+}
+
+.chat-avatar.speaking {
+  animation: avatar-speak .5s ease-in-out infinite alternate;
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, .45);
+}
+
+@keyframes avatar-speak {
+  from { box-shadow: 0 0 0 2px rgba(201, 168, 76, .3); }
+  to   { box-shadow: 0 0 0 7px rgba(201, 168, 76, .0); }
+}
+
+.chat-header-info { flex: 1; }
+.chat-header-info h3 { font-size: .95rem; font-weight: 700; }
+
+.chat-header-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-dot {
+  width: 7px; height: 7px;
+  background: #4AC88C;
+  border-radius: 50%;
+}
+
+.chat-header-status p {
+  font-size: .72rem;
+  color: var(--text-2);
+}
+
+#mute-btn, #chat-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text-2);
+  padding: 4px;
+  border-radius: 6px;
+  transition: color .15s, background .15s;
+}
+
+#mute-btn:hover, #chat-close:hover {
+  color: var(--text);
+  background: rgba(255,255,255,.06);
+}
+
+#chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+}
+
+#chat-messages::-webkit-scrollbar { width: 4px; }
+#chat-messages::-webkit-scrollbar-track { background: transparent; }
+#chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: .88rem;
+  line-height: 1.55;
+  word-break: break-word;
+}
+
+.msg.user {
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 500;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.msg.bot {
+  background: var(--navy-3);
+  color: var(--text);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.msg.typing {
+  background: var(--navy-3);
+  border: 1px solid var(--border);
+  align-self: flex-start;
+  padding: 12px 16px;
+}
+
+.typing-dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.typing-dots span {
+  width: 7px; height: 7px;
+  background: var(--text-2);
+  border-radius: 50%;
+  animation: typing-bounce .9s ease-in-out infinite;
+}
+
+.typing-dots span:nth-child(2) { animation-delay: .15s; }
+.typing-dots span:nth-child(3) { animation-delay: .3s; }
+
+@keyframes typing-bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: .5; }
+  40%            { transform: translateY(-5px); opacity: 1; }
+}
+
+#chat-input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 12px 14px;
+  border-top: 1px solid var(--border);
+  background: var(--navy-2);
+  flex-shrink: 0;
+}
+
+#chat-input {
+  flex: 1;
+  background: var(--navy-3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: .88rem;
+  padding: 10px 14px;
+  resize: none;
+  outline: none;
+  min-height: 40px;
+  max-height: 100px;
+  transition: border-color .2s;
+  line-height: 1.4;
+}
+
+#chat-input:focus { border-color: rgba(201, 168, 76, .4); }
+#chat-input::placeholder { color: var(--text-2); }
+
+#mic-btn {
+  background: rgba(201, 168, 76, .08);
+  border: 1.5px solid rgba(201, 168, 76, .2);
+  border-radius: 8px;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .9rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background .2s, border-color .2s;
+}
+
+#mic-btn:hover {
+  background: rgba(201, 168, 76, .15);
+  border-color: rgba(201, 168, 76, .4);
+}
+
+#mic-btn.listening {
+  background: rgba(232, 74, 74, .15);
+  border-color: var(--red);
+  animation: mic-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes mic-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 74, 74, .4); }
+  50%       { box-shadow: 0 0 0 8px rgba(232, 74, 74, .0); }
+}
+
+#chat-send {
+  background: var(--gold);
+  border: none;
+  border-radius: 8px;
+  width: 36px; height: 36px;
+  color: var(--navy);
+  font-size: .95rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background .2s;
+  display: flex; align-items: center; justify-content: center;
+}
+
+#chat-send:hover { background: var(--gold-2); }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero { flex-direction: column; padding-top: 100px; text-align: center; }
+  .hero-sub { margin: 0 auto 32px; }
+  .hero-actions, .hero-proof { justify-content: center; }
+  .hero-visual { align-items: center; }
+  .why-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  #chat-window { width: calc(100vw - 32px); right: 16px; bottom: 90px; }
+}
