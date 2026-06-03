@@ -12,6 +12,7 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
+from app.config import get_settings
 from app.rag.ingest import ingest_knowledge_base
 from app.rag.pipeline import generate_response
 from app.tools.mock_db import init_db
@@ -67,6 +68,35 @@ async def startup():
 @app.get("/")
 async def index():
     return FileResponse(str(_frontend / "index.html"))
+
+
+@app.get("/admin")
+async def admin_page():
+    return FileResponse(str(_frontend / "admin.html"))
+
+
+@app.get("/api/admin/data")
+async def admin_data(key: str = ""):
+    import sqlite3
+    from datetime import date as _date
+    settings = get_settings()
+    if key != settings.admin_key:
+        return JSONResponse({"error": "Unauthorized"}, status_code=401)
+    conn = sqlite3.connect(settings.db_path)
+    conn.row_factory = sqlite3.Row
+    rows = conn.execute("SELECT * FROM consultations ORDER BY created_at DESC").fetchall()
+    conn.close()
+    today = _date.today().isoformat()
+    data = [dict(r) for r in rows]
+    return JSONResponse({
+        "stats": {
+            "total": len(data),
+            "critical": sum(1 for r in data if r.get("urgency") == "critical"),
+            "high": sum(1 for r in data if r.get("urgency") == "high"),
+            "today": sum(1 for r in data if r.get("preferred_date") == today),
+        },
+        "consultations": data,
+    })
 
 
 class ChatRequest(BaseModel):

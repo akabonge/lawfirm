@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>The Docket — Billie Jean Law</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--cream:#F8F4ED;--cream2:#F0EBE1;--white:#FFFFFF;--charcoal:#1C1824;--charcoal2:#2D2839;--crimson:#922B3E;--crimson2:#A83348;--gold:#C9A84C;--text:#1C1824;--text2:#5A5468;--border:#DDD5C8;--green:#2A7D4F;--orange:#C07020;--amber:#9A7010}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh}
+/* LOGIN */
+.login-overlay{position:fixed;inset:0;background:var(--cream);display:flex;align-items:center;justify-content:center;z-index:100}
+.login-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:52px 44px;max-width:420px;width:90%;text-align:center;box-shadow:0 8px 40px rgba(28,24,36,.08)}
+.login-seal{font-size:2.2rem;margin-bottom:16px}
+.login-firm{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--crimson);margin-bottom:4px}
+.login-sub{color:var(--text2);font-size:.85rem;margin-bottom:32px}
+.login-label{display:block;text-align:left;font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text2);margin-bottom:6px}
+.login-input{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:8px;font-size:.95rem;font-family:'Inter',sans-serif;outline:none;color:var(--text);background:var(--cream);transition:border-color .2s;margin-bottom:20px}
+.login-input:focus{border-color:var(--crimson);background:var(--white)}
+.login-btn{width:100%;padding:13px;background:var(--crimson);color:white;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s;letter-spacing:.02em}
+.login-btn:hover{background:var(--crimson2)}
+.login-error{color:var(--crimson);font-size:.82rem;margin-top:14px;min-height:20px}
+/* DASHBOARD */
+.dash{display:none}
+.dash.show{display:block}
+/* HEADER */
+.hdr{background:var(--charcoal);padding:0 36px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.hdr-left{display:flex;align-items:center;gap:14px}
+.hdr-line{width:3px;height:28px;background:var(--crimson);border-radius:2px}
+.hdr-firm{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold)}
+.hdr-title{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.hdr-right{display:flex;align-items:center;gap:16px}
+.hdr-date{font-size:.8rem;color:rgba(255,255,255,.4)}
+.logout{background:none;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);padding:5px 14px;border-radius:6px;cursor:pointer;font-size:.78rem;font-family:'Inter',sans-serif;transition:all .2s}
+.logout:hover{border-color:var(--gold);color:var(--gold)}
+/* KPI STRIP */
+.kpi-row{background:var(--white);border-bottom:1px solid var(--border);display:flex}
+.kpi{flex:1;padding:22px 28px;border-right:1px solid var(--border);position:relative}
+.kpi:last-child{border-right:none}
+.kpi-label{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text2);margin-bottom:6px}
+.kpi-num{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--charcoal);line-height:1}
+.kpi-num.red{color:var(--crimson)}
+.kpi-num.gold{color:var(--gold)}
+.kpi-num.green{color:var(--green)}
+.kpi-sub{font-size:.72rem;color:var(--text2);margin-top:4px}
+/* TOOLBAR */
+.toolbar{padding:14px 36px;background:var(--cream2);border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.toolbar-label{font-size:.75rem;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.06em}
+select.filter{padding:7px 12px;border:1px solid var(--border);border-radius:6px;background:var(--white);font-size:.82rem;color:var(--text);outline:none;cursor:pointer;font-family:'Inter',sans-serif}
+select.filter:focus{border-color:var(--crimson)}
+.spacer{flex:1}
+.count-label{font-size:.8rem;color:var(--text2)}
+/* TABLE */
+.table-wrap{padding:24px 36px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(28,24,36,.04)}
+thead tr{background:var(--charcoal)}
+thead th{padding:13px 16px;text-align:left;font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.6);white-space:nowrap}
+thead th:first-child{color:var(--gold)}
+tbody tr{border-bottom:1px solid var(--border);transition:background .12s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--cream)}
+td{padding:12px 16px;font-size:.83rem;vertical-align:middle}
+.mono{font-family:'Courier New',monospace;font-size:.78rem;color:var(--text2)}
+/* BADGES */
+.badge{display:inline-block;padding:3px 9px;border-radius:100px;font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+.b-critical{background:rgba(146,43,62,.1);color:var(--crimson);border:1px solid rgba(146,43,62,.2)}
+.b-high{background:rgba(192,112,32,.1);color:var(--orange);border:1px solid rgba(192,112,32,.2)}
+.b-moderate{background:rgba(154,112,16,.1);color:var(--amber);border:1px solid rgba(154,112,16,.2)}
+.b-normal{background:rgba(42,125,79,.1);color:var(--green);border:1px solid rgba(42,125,79,.2)}
+.b-scheduled{background:rgba(74,158,232,.1);color:#4A9EE8;border:1px solid rgba(74,158,232,.2)}
+.b-completed{background:rgba(42,125,79,.1);color:var(--green);border:1px solid rgba(42,125,79,.2)}
+/* ATTORNEY DOT */
+.atty{display:flex;align-items:center;gap:7px;font-size:.82rem}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-e{background:var(--crimson)}
+.dot-d{background:#4A9EE8}
+.dot-m{background:var(--green)}
+/* SOL CELL */
+.sol{font-size:.8rem;font-weight:600}
+.sol.crit{color:var(--crimson)}
+.sol.hi{color:var(--orange)}
+.sol.mod{color:var(--amber)}
+.sol.ok{color:var(--text2)}
+/* CASE TYPE */
+.case-type{font-size:.8rem;color:var(--charcoal2);font-weight:500;text-transform:capitalize}
+/* EMPTY */
+.empty{text-align:center;padding:48px;color:var(--text2);font-size:.9rem}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-overlay" id="loginOverlay">
+  <div class="login-card">
+    <div class="login-seal">⚖️</div>
+    <div class="login-firm">Billie Jean Law</div>
+    <div class="login-sub">Case Management — The Docket</div>
+    <label class="login-label">Access Key</label>
+    <input class="login-input" type="password" id="keyInput" placeholder="Enter access key" onkeydown="if(event.key==='Enter')login()"/>
+    <button class="login-btn" onclick="login()">Access The Docket</button>
+    <div class="login-error" id="loginErr"></div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dash" id="dash">
+  <div class="hdr">
+    <div class="hdr-left">
+      <div class="hdr-line"></div>
+      <div>
+        <div class="hdr-firm">Billie Jean Law</div>
+        <div class="hdr-title">The Docket — Case Management</div>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="hdr-date" id="hdrDate"></div>
+      <button class="logout" onclick="logout()">Sign Out</button>
+    </div>
+  </div>
+
+  <div class="kpi-row" id="kpiRow">
+    <div class="kpi"><div class="kpi-label">Total Filings</div><div class="kpi-num" id="kTotal">—</div><div class="kpi-sub">all consultations</div></div>
+    <div class="kpi"><div class="kpi-label">Critical SOL</div><div class="kpi-num red" id="kCrit">—</div><div class="kpi-sub">deadline &lt; 30 days</div></div>
+    <div class="kpi"><div class="kpi-label">High Priority</div><div class="kpi-num gold" id="kHigh">—</div><div class="kpi-sub">deadline &lt; 90 days</div></div>
+    <div class="kpi"><div class="kpi-label">Today</div><div class="kpi-num green" id="kToday">—</div><div class="kpi-sub">consultations scheduled</div></div>
+  </div>
+
+  <div class="toolbar">
+    <span class="toolbar-label">Filter:</span>
+    <select class="filter" id="fUrgency" onchange="render()">
+      <option value="">All Urgency</option>
+      <option value="critical">Critical</option>
+      <option value="high">High</option>
+      <option value="moderate">Moderate</option>
+      <option value="normal">Normal</option>
+    </select>
+    <select class="filter" id="fAttorney" onchange="render()">
+      <option value="">All Attorneys</option>
+      <option value="Eleanor Hayes">Eleanor Hayes</option>
+      <option value="David Osei">David Osei</option>
+      <option value="Marcus Reilly">Marcus Reilly</option>
+    </select>
+    <select class="filter" id="fCase" onchange="render()">
+      <option value="">All Case Types</option>
+      <option value="personal_injury">Personal Injury</option>
+      <option value="family_law">Family Law</option>
+      <option value="criminal_defense">Criminal Defense</option>
+      <option value="estate_planning">Estate Planning</option>
+    </select>
+    <select class="filter" id="fStatus" onchange="render()">
+      <option value="">All Status</option>
+      <option value="scheduled">Scheduled</option>
+      <option value="completed">Completed</option>
+    </select>
+    <div class="spacer"></div>
+    <span class="count-label" id="rowCount"></span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Ticket</th>
+          <th>Client</th>
+          <th>Case Type</th>
+          <th>Attorney</th>
+          <th>Consultation</th>
+          <th>SOL Deadline</th>
+          <th>Urgency</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+let _key = '', _data = [];
+
+function login() {
+  const k = document.getElementById('keyInput').value.trim();
+  if (!k) return;
+  fetch('/api/admin/data?key=' + encodeURIComponent(k))
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(d => {
+      _key = k;
+      _data = d.consultations || [];
+      document.getElementById('loginOverlay').style.display = 'none';
+      document.getElementById('dash').classList.add('show');
+      document.getElementById('kTotal').textContent = d.stats.total;
+      document.getElementById('kCrit').textContent = d.stats.critical;
+      document.getElementById('kHigh').textContent = d.stats.high;
+      document.getElementById('kToday').textContent = d.stats.today;
+      document.getElementById('hdrDate').textContent = new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+      render();
+    })
+    .catch(() => { document.getElementById('loginErr').textContent = 'Invalid access key.'; });
+}
+
+function logout() {
+  _key = ''; _data = [];
+  document.getElementById('loginOverlay').style.display = 'flex';
+  document.getElementById('dash').classList.remove('show');
+  document.getElementById('keyInput').value = '';
+  document.getElementById('loginErr').textContent = '';
+}
+
+function solInfo(deadline) {
+  if (!deadline) return { text: '—', cls: 'ok' };
+  const days = Math.ceil((new Date(deadline) - new Date()) / 86400000);
+  if (days < 0) return { text: 'Expired', cls: 'crit' };
+  if (days <= 30) return { text: days + ' days', cls: 'crit' };
+  if (days <= 90) return { text: days + ' days', cls: 'hi' };
+  if (days <= 180) return { text: days + ' days', cls: 'mod' };
+  return { text: days + ' days', cls: 'ok' };
+}
+
+function attyDot(name) {
+  if (!name) return '';
+  if (name.includes('Eleanor')) return 'dot-e';
+  if (name.includes('David')) return 'dot-d';
+  return 'dot-m';
+}
+
+function fmt(ct) {
+  return (ct || '').replace(/_/g,' ');
+}
+
+function render() {
+  const fu = document.getElementById('fUrgency').value;
+  const fa = document.getElementById('fAttorney').value;
+  const fc = document.getElementById('fCase').value;
+  const fs = document.getElementById('fStatus').value;
+  let rows = _data.filter(r =>
+    (!fu || r.urgency === fu) &&
+    (!fa || (r.attorney_assigned || '') === fa) &&
+    (!fc || (r.case_type || '').includes(fc)) &&
+    (!fs || r.status === fs)
+  );
+  document.getElementById('rowCount').textContent = rows.length + ' record' + (rows.length !== 1 ? 's' : '');
+  const tb = document.getElementById('tbody');
+  if (!rows.length) { tb.innerHTML = '<tr><td colspan="8" class="empty">No records match the current filters.</td></tr>'; return; }
+  tb.innerHTML = rows.map(r => {
+    const sol = solInfo(r.sol_deadline);
+    const urg = r.urgency || 'normal';
+    const bc = { critical:'b-critical', high:'b-high', moderate:'b-moderate', normal:'b-normal' }[urg] || 'b-normal';
+    const sc = { scheduled:'b-scheduled', completed:'b-completed' }[r.status] || 'b-scheduled';
+    return `<tr>
+      <td><span class="mono">${r.ticket_id || '—'}</span></td>
+      <td><strong>${r.name || '—'}</strong><br><span style="font-size:.75rem;color:var(--text2)">${r.email || ''}</span></td>
+      <td><span class="case-type">${fmt(r.case_type)}</span></td>
+      <td><div class="atty"><span class="dot ${attyDot(r.attorney_assigned)}"></span>${r.attorney_assigned || '—'}</div></td>
+      <td>${r.preferred_date || '—'} <span style="color:var(--text2)">${r.preferred_time || ''}</span></td>
+      <td><span class="sol ${sol.cls}">${sol.text}</span></td>
+      <td><span class="badge ${bc}">${urg}</span></td>
+      <td><span class="badge ${sc}">${r.status || '—'}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+document.getElementById('keyInput').addEventListener('keydown', e => { if(e.key==='Enter') login(); });
+</script>
+</body>
+</html>

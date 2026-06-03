@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     ollama_base_url: str = "http://localhost:11434"
     chroma_path: str = "./chroma_db"
     db_path: str = "./lawfirm.db"
+    admin_key: str = "demo"
 
     class Config:
         env_file = ".env"
