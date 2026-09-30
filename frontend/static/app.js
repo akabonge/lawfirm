@@ -174,7 +174,16 @@
     const msgs = document.getElementById('chat-messages');
     const el = document.createElement('div');
     el.className = 'msg bot';
-    el.textContent = text;
+    // Support paired, single-line **bold** only; model output stays text, never HTML.
+    String(text ?? '').split(/(\*\*[^*\r\n]+\*\*)/g).forEach((part, index) => {
+      if (index % 2) {
+        const strong = document.createElement('strong');
+        strong.textContent = part.slice(2, -2);
+        el.appendChild(strong);
+      } else {
+        el.appendChild(document.createTextNode(part));
+      }
+    });
     msgs.appendChild(el);
     msgs.scrollTop = msgs.scrollHeight;
   }
